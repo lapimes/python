@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+import tweepy
+from tweepy import OAuthHandler
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
+
+consumer_key = ''
+consumer_secret = ''
+access_token = ''
+access_token_secret = ''
+
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+api = tweepy.API(auth)
+
+search_results = api.search(q="car", lang="es", result_type="mixed", since_id=1)
+
+print search_results
